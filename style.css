@@ -5,63 +5,51 @@
 body {
   box-sizing: border-box;
   font-family: sans-serif;
-  font-weight: bold;
+  
   background-color: #ffffff;
 }
-/*------INICIO------*/
-.modal-toggle {
-  display: none;
-}
 
+/* NAVEGATION */
 
-.inicio-container {
+header {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #3d3d3d;
-  z-index: 999;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 1s ease, visibility 1s ease;
+  justify-content: space-evenly;
+  z-index: 10;
+  position: relative;
+  padding: 20px;
 }
-.inicio-container.active {
-  opacity: 1;
-  visibility: visible;
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  box-sizing: border-box;
 }
-
-.inicio {
-  font-family: monospace;
-  text-align: center;
+.nav-list a {
+  color: #111;
+  padding: 2px;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+.nav-list a:hover {
   color: #fff;
-  font-size: 4rem;
-  background-color: transparent;
-}
-.inicio-button {
-  font-size: 16px;
-  background-color: transparent;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  background-color: darkgray;
+  transition: 0.3s;
 }
 
+.abrir-menu,
+.cerrar-menu {
+  display: none;
+  background-color: transparent;
+}
 
 /*PRESENTATION*/
 
 .container {
   display: flex;
   box-sizing: border-box;
-  height: 100vh;
+  height: 95vh;
   width: 100%;
-  
-  
 }
 .item-container {
   box-sizing: border-box;
@@ -85,7 +73,6 @@ body {
 .item-container:last-child {
   background-image: url(./assets/img/Verticales/amsterdam-vertical.jpeg);
 }
-
 
 .itm-1 {
   animation: escalar 1s both;
@@ -111,14 +98,12 @@ body {
 }
 .link-item {
   box-sizing: border-box;
+  padding-top: 15px;
   text-decoration: none;
   color: #fff;
   writing-mode: vertical-rl;
   font-size: 4rem;
-  padding-top: 10px;
 }
-
-
 
 /*TITLE*/
 
@@ -142,21 +127,59 @@ body {
   max-width: 100%;
 }
 
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #333c;
+  height: 200px;
+  width: 100%;
+  text-align: center;
 
-/*MEDIAS QUERIES*/
+}
+
+footer .footer-title {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: monospace;
+  font-weight: 100;
+  margin-top: 30px;
+  color: #fff;
+}
+
+.social-list {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  list-style: none;
+}
+.social-item img {
+  width: 50px;
+}
+.social-item:hover {
+  scale: 1.1;
+  transition: .5s;
+}
+
+/*------MEDIAS QUERIES--------*/
 
 @media screen and (max-width: 450px) {
   .container {
     display: flex;
-    height: 90vh;
+    gap: 10px;
     flex-wrap: wrap;
-    box-sizing: border-box;
+    height: 82dvh;
   }
   .item-container {
     flex-grow: 1;
     flex-basis: 200;
     text-decoration: none;
     color: #fff;
+    animation: none;
+    background-position: center;
   }
   .link-item {
     text-decoration: none;
@@ -164,18 +187,64 @@ body {
     font-size: 1.5rem;
     padding-top: 15px;
   }
-  .item-container {
-    background-image: url(./assets/img/Verticales/roma.jpeg);
-    background-position: top center;
+}
+
+/* NAVIGATION QUERIES */
+
+@media screen and (max-width: 600px) {
+  .abrir-menu,
+  .cerrar-menu {
+    display: block;
+    border: none;
+  }
+  .nav {
+    opacity: 0;
+    min-width: 50%;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #111;
+    padding: 2rem;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+    transition: 0.5s;
+  }
+  .nav.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  .cerrar-menu {
+    background-color: transparent;
+    color: #fff;
+    margin-top: 15px;
+  }
+  .nav-list {
+    margin-top: 150px;
+    gap: 40px;
+    flex-direction: column;
+    text-align: end;
+  }
+  .nav-list a {
+    color: #fff;
+  }
+  /*-----FOOTER MEDIA QUERIES------*/
+  footer .footer-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    gap: 10px;
+  }
+  .social-list {
+    padding: 10px
   }
 }
 
-@media screen and (max-width: 720px) {
-  .item-container {
-    background-image: url(./assets/img/roma.jpeg);
-    background-position: center;
-  }
-}
+
 
 
 /*------ANIMATIONS-------*/
@@ -185,6 +254,6 @@ body {
     scale: 1;
   }
   to {
-    scale: .9;
+    scale: 0.9;
   }
 }
