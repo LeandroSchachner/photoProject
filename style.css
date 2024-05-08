@@ -6,7 +6,7 @@ body {
   box-sizing: border-box;
   font-family: sans-serif;
   
-  background-color: #ffffff;
+  background-color: #333;
 }
 
 /* NAVEGATION */
@@ -15,9 +15,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  z-index: 10;
-  position: relative;
   padding: 20px;
+
 }
 .nav-list {
   display: flex;
@@ -26,7 +25,7 @@ header {
   box-sizing: border-box;
 }
 .nav-list a {
-  color: #111;
+  color: #fff;
   padding: 2px;
   text-decoration: none;
   font-size: 1.5rem;
@@ -74,22 +73,6 @@ header {
   background-image: url(./assets/img/Verticales/amsterdam-vertical.jpeg);
 }
 
-.itm-1 {
-  animation: escalar 1s both;
-}
-.itm-2 {
-  animation: escalar 2.5s both;
-}
-.itm-3 {
-  animation: escalar 3.5s both;
-}
-.itm-4 {
-  animation: escalar 4.5s both;
-}
-.itm-5 {
-  animation: escalar 5.5s both;
-}
-
 .item-container:hover {
   overflow: auto;
   box-sizing: border-box;
@@ -111,7 +94,9 @@ header {
 .title {
   text-align: center;
   margin: 10px;
+  color: #fff;
 }
+
 .grid {
   max-width: 80%;
   margin: auto;
@@ -121,18 +106,74 @@ header {
   grid-auto-flow: row;
   grid-auto-columns: 1fr;
   column-gap: 5px;
+  margin-bottom: 20px;
+}
+.grid-item img {
+  z-index: 1;
+  width: 100%;
+  border-radius: 15px;
+}
+.grid-item img::after {
+  content: '';
+  position: fixed;
+  width: 100vh;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.56);
+  z-index: 0;
+} 
+
+/*----PAGES GALLERYES-----*/
+.grid-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 1fr;
+  grid-auto-flow: row;
+  grid-auto-columns: 1fr;
+  margin: auto;
+  gap: 10px;
+  padding: 10px;
+  max-width: 80%;
+  
+}
+.grid-item-gallery img {
+  max-width: 100%;
+  border-radius: 15px;
+}
+.grid-item-gallery {
+
+} 
+.grid-item-gallery:first-child {
+  background-image: url(./assets/img/Italy/20231029_142630.jpg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  grid-column-end: 2;
+}
+.grid-item-gallery:last-child {
+  background-image: url(./assets/img/Italy/20231030_105017.jpg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  grid-column-start: 5;
+  grid-row-start: 2;
+  grid-row-end: 5;
+  grid-column-end: 4;
 }
 
-.grid-item img {
-  max-width: 100%;
-}
+
+/*-----FOOTER-----*/
 
 footer {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  background-color: #333c;
+  background-color: #fff;
   height: 200px;
   width: 100%;
   text-align: center;
@@ -147,7 +188,6 @@ footer .footer-title {
   font-family: monospace;
   font-weight: 100;
   margin-top: 30px;
-  color: #fff;
 }
 
 .social-list {
@@ -187,6 +227,10 @@ footer .footer-title {
     font-size: 1.5rem;
     padding-top: 15px;
   }
+  .item-container:hover {
+    transform: none;
+  }
+
 }
 
 /* NAVIGATION QUERIES */
@@ -196,6 +240,11 @@ footer .footer-title {
   .cerrar-menu {
     display: block;
     border: none;
+    color: #fff;
+  }
+  header {
+    justify-content: end;
+    padding: 18px;
   }
   .nav {
     opacity: 0;
@@ -249,11 +298,4 @@ footer .footer-title {
 
 /*------ANIMATIONS-------*/
 
-@keyframes escalar {
-  from {
-    scale: 1;
-  }
-  to {
-    scale: 0.9;
-  }
-}
+
