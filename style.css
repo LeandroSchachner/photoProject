@@ -47,7 +47,7 @@ header {
 .container {
   display: flex;
   box-sizing: border-box;
-  height: 95vh;
+  height: 90vh;
   width: 100%;
 }
 .item-container {
