@@ -1,0 +1,190 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-weight: bold;
+  background-color: #ffffff;
+}
+/*------INICIO------*/
+.modal-toggle {
+  display: none;
+}
+
+
+.inicio-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #3d3d3d;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+.inicio-container.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.inicio {
+  font-family: monospace;
+  text-align: center;
+  color: #fff;
+  font-size: 4rem;
+  background-color: transparent;
+}
+.inicio-button {
+  font-size: 16px;
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+/*PRESENTATION*/
+
+.container {
+  display: flex;
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100%;
+  
+  
+}
+.item-container {
+  box-sizing: border-box;
+  width: 100%;
+  background-size: cover;
+  transition: 1s;
+}
+.item-container:first-child {
+  background-image: url(./assets/img/Verticales/roma.jpeg);
+}
+
+.item-container:nth-child(2) {
+  background-image: url(./assets/img/Verticales/francia.jpg);
+}
+.item-container:nth-child(3) {
+  background-image: url(./assets/img/Verticales/munich.jpg);
+}
+.item-container:nth-child(4) {
+  background-image: url(./assets/img/Verticales/toledo.jpg);
+}
+.item-container:last-child {
+  background-image: url(./assets/img/Verticales/amsterdam-vertical.jpeg);
+}
+
+
+.itm-1 {
+  animation: escalar 1s both;
+}
+.itm-2 {
+  animation: escalar 2.5s both;
+}
+.itm-3 {
+  animation: escalar 3.5s both;
+}
+.itm-4 {
+  animation: escalar 4.5s both;
+}
+.itm-5 {
+  animation: escalar 5.5s both;
+}
+
+.item-container:hover {
+  overflow: auto;
+  box-sizing: border-box;
+  transform: scale(0.9);
+  border-radius: 15px;
+}
+.link-item {
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #fff;
+  writing-mode: vertical-rl;
+  font-size: 4rem;
+  padding-top: 10px;
+}
+
+
+
+/*TITLE*/
+
+/*MAIN*/
+.title {
+  text-align: center;
+  margin: 10px;
+}
+.grid {
+  max-width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 1fr;
+  grid-auto-flow: row;
+  grid-auto-columns: 1fr;
+  column-gap: 5px;
+}
+
+.grid-item img {
+  max-width: 100%;
+}
+
+
+/*MEDIAS QUERIES*/
+
+@media screen and (max-width: 450px) {
+  .container {
+    display: flex;
+    height: 90vh;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+  }
+  .item-container {
+    flex-grow: 1;
+    flex-basis: 200;
+    text-decoration: none;
+    color: #fff;
+  }
+  .link-item {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
+    padding-top: 15px;
+  }
+  .item-container {
+    background-image: url(./assets/img/Verticales/roma.jpeg);
+    background-position: top center;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .item-container {
+    background-image: url(./assets/img/roma.jpeg);
+    background-position: center;
+  }
+}
+
+
+/*------ANIMATIONS-------*/
+
+@keyframes escalar {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: .9;
+  }
+}
